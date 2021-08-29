@@ -21,12 +21,6 @@
           <p>class: {{character.system_unique.dnd_5th_001.class}}</p>
         </div>
       </div>
-      <div class="extra content">
-        <a>
-          <i class="users icon"></i>
-          2 Members
-        </a>
-      </div>
     </div>
   </div>
   </div>
