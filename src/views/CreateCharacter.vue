@@ -46,7 +46,7 @@
                 </div>
                 <div class="ui divider"></div>
                 <div class="ui blue tag label">
-                    <h1 class="ui header">Atributes</h1>
+                    <h1 class="ui header">Attributes</h1>
                 </div>
                 <div class="ui divider"></div>
                 <div class="ui tertiary segment">
