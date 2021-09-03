@@ -4,9 +4,15 @@
       <router-link class="item" to="/CreateChar">Create Character</router-link>
       <router-link class="item" to="#">My Character</router-link>
   </div>
-  <router-view/>
+  
+  <div class="pusher">
+    <!-- Site content !-->
+    <router-view/>
+  </div>
+
 </template>
-
-<script>
-
-</script>
+<style>
+  .ui.pointing.menu{
+    opacity: 0.7;
+  }
+</style>

@@ -51,4 +51,10 @@ export default {
 
 </script>
 
-
+<style>
+  .ui.image {
+    width:20.7em;
+    height: 23.7em;
+    max-width: none;
+  }
+</style>
