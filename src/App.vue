@@ -1,8 +1,8 @@
 <template>
-  <div class="ui pointing menu">
-      <router-link class="active item" to="/">Characters</router-link>
-      <router-link class="item" to="/CreateChar">Create Character</router-link>
-      <router-link class="item" to="#">My Character</router-link>
+  <div class="ui secondary pointing menu">
+      <router-link class="active item" to="/"><h3 class="ui header">Characters</h3></router-link>
+      <router-link class="item" to="/CreateChar"><h3 class="ui header">Create Character</h3></router-link>
+      <router-link class="item" to="#"><h3 class="ui header">My Character</h3></router-link>
   </div>
   
   <div class="pusher">
@@ -12,7 +12,4 @@
 
 </template>
 <style>
-  .ui.pointing.menu{
-    opacity: 0.7;
-  }
 </style>

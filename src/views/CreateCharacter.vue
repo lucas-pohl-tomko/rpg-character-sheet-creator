@@ -10,37 +10,37 @@
                     <div class="fields">
                         <div class="six wide field">
                         <label>Name</label>
-                        <input type="text" placeholder="Name">
+                        <input type="text" placeholder="Name" v-model="name">
                         </div>
                         <div class="three wide field">
                         <label>Class</label>
-                        <input type="text" placeholder="Class">
+                        <input type="text" placeholder="Class" v-model="charclass" >
                         </div>
                         <div class="three wide field">
                         <label>Race</label>
-                        <input type="text" placeholder="Race">
+                        <input type="text" placeholder="Race" v-model="race">
                         </div>
                         <div class="two wide field">
                         <label>Weight</label>
-                        <input type="text" placeholder="Weight">
+                        <input type="number" placeholder="Weight" v-model="weight">
                         </div>
                         <div class="two wide field">
                         <label>Height</label>
-                        <input type="text" placeholder="Height">
+                        <input type="number" placeholder="Height" v-model="height">
                         </div>
                     </div>
                     <div class="fields">
                         <div class="two wide field">
                         <label>Age</label>
-                        <input type="text" placeholder="Age">
+                        <input type="number" placeholder="Age" v-model="age">
                         </div>
                         <div class="six wide field">
                         <label>Character Disposition</label>
-                        <input type="text" placeholder="Character Disposition">
+                        <input type="text" placeholder="Character Disposition" v-model="chardisp">
                         </div>
                         <div class="eight wide field">
                         <label>Disabling Characteristics</label>
-                        <input type="text" placeholder="Disabling Characteristics">
+                        <input type="text" placeholder="Disabling Characteristics" v-model="dchar">
                         </div>
                     </div>
                 </div>
@@ -99,28 +99,48 @@
                                 <div class="ui segment">
                                     <div class="field">
                                         <label>Story</label>
-                                        <textarea rows="10"></textarea>
+                                        <textarea rows="10" v-model="story"></textarea>
                                     </div> 
                                     <div class="ui divider"></div>
                                     <div class="field">
                                         <label>Items</label>
-                                        <textarea rows="10"></textarea>
+                                        <textarea rows="10" v-model="items"></textarea>
                                     </div>      
                                 </div>
                         </div>
-                    
+
+                        <div class="right floated nine wide column">
+                            <button class="ui primary button" type="button" v-on:click="saveFile()">Save Character</button>      
+                        </div>
                     </div>
+
+                    
                 </div>
             </div>
         </div>
     </div>
- 
 </template>
 
 <script>
 export default{
     data(){
+
         return {
+            arr: [],
+            str: '',
+            dex:'',
+            int:'',
+            ego:'',
+            name: '',
+            race:'',
+            charclass:'',
+            weight:'',
+            height:'',
+            age:'',
+            chardisp:'',
+            dchar:'',
+            story:'',
+            items:'',
             activeStr: [true,true,true,true,true],
             activeDex: [true,true,true,true,true],
             activeInt: [true,true,true,true,true],
@@ -138,6 +158,7 @@ export default{
                 number2 += 1;
                 this.activeStr[number2] = true
             }
+            this.str = position;
         },
         checkDex: function (position) {
             var number = position; 
@@ -148,6 +169,7 @@ export default{
                 number2 += 1;
                 this.activeDex[number2] = true
             }
+            this.dex = position;
         },
         checkInt: function (position) {
             var number = position; 
@@ -158,6 +180,7 @@ export default{
                 number2 += 1;
                 this.activeInt[number2] = true
             }
+            this.int = position;
         },
         checkEgo: function (position) {
             var number = position; 
@@ -168,10 +191,24 @@ export default{
                 number2 += 1;
                 this.activeEgo[number2] = true
             }
+            this.ego = position;
         },
-    }
+        addToArr: function () {
+            this.arr.push({int: this.int,str: this.str,dex: this.dex,ego: this.ego, name: this.name, class: this.class, weight: this.weight, 
+            height: this.height, age: this.age, chardisp: this.chardisp, dchar: this.dchar, story: this.story, items: this.items});
+            console.log(1);
+        },
+        saveFile: function() {
+            this.addToArr()
+            const data = JSON.stringify(this.arr)
+            window.localStorage.setItem('arr', data);
+            console.log(JSON.parse(window.localStorage.getItem('arr')))
+        }
+    },
+    
 
 }
+
 </script>
 
 <style>
